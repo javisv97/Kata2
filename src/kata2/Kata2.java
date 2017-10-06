@@ -10,12 +10,8 @@ public class Kata2 {
         int [] data = {1,1,1,100,2,4,5,6,8,8,4,5,6,2,-4};
         Map<Integer, Integer> histograma = new HashMap<>();
        
-        for (int i = 0; i < data.length; i++) {
-            if(histograma.containsKey(data[i])){
-                histograma.put(data[i], histograma.get(data[i])+1);
-            } else {
-                histograma.put(data[i], 1);
-            }
+        for (int key : data) {
+            histograma.put(key, histograma.containsKey(key) ? histograma.get(key) + 1 :1 );
         }
         for(int key: histograma.keySet()){
             System.out.println(key + " ==> " + histograma.get(key));
